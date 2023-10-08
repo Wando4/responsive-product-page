@@ -1,5 +1,11 @@
 :root {
-
+  --font-size-sm: clamp(0.83rem, 0.01vw + 0.83rem, 0.84rem);
+  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --font-size-md: clamp(1.2rem, 0.87vw + 0.98rem, 1.68rem);
+  --font-size-lg: clamp(1.44rem, 1.7vw + 1.02rem, 2.37rem);
+  --font-size-xl: clamp(1.73rem, 2.96vw + 0.99rem, 3.36rem);
+  --font-size-xxl: clamp(2.07rem, 4.86vw + 0.86rem, 4.75rem);
+  --font-size-xxxl: clamp(2.49rem, 7.68vw + 0.57rem, 6.71rem);
 }
 
 * {
@@ -38,17 +44,18 @@ img {
 #header > div {
   display: flex;
   justify-content: space-between;
-  align-items: normal;
+  align-items: center;
 }
 
 nav ul {
-  list-style-type: none;
-  display: flex;
-  align-items: flex-end;
+    list-style-type: none;
+    display: flex;
+    align-items: flex-end;
 }
 
 nav ul li {
   padding-left: 1.125em;
+  word-break: none;
 }
 
 nav ul li a:link,
@@ -69,43 +76,80 @@ nav ul li a:visited {
 }
 
 #limited h1 {
-  margin: 0.5 auto;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  line-height: 0.8em;
 }
 
 #limited h3 {
-  margin: 0 auto;
+  margin: 0 0;
+  padding-top: 0;
   text-transform: uppercase;
+  font-size: small;
+  line-height: 0.8em;
+}
+
+#limited .wrapper .limited-text-container .red {
+  font-size: small;
 }
 
 #limited p {
   margin: 0 auto;
-  line-height: 1.8em;
+  line-height: 1.4em;
   margin-bottom: 1.8em;
 }
 
-/* .context {
+/* /* .context {
   line-height: 2;
 } */
+/* @media (min-width: 800px){
+  .limited {
+    grid-template-columns: 1fr 1fr;
+  } */ 
 
-.limited-image-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 1em;
-  column-gap: 1em;
+@media (max-width: 400px) {
+  .limited-image-grid {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-rows: 3fr 1fr;
+    row-gap: 1em;
+    column-gap: 1em;
+  }
+}
 
+@media (min-width: 400px) {
+  .limited-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1em;
+    column-gap: 1em;
+  }
+}
+
+.limited-image-grid > img {
+    border-radius: 8px;
+    float: left;
+    margin-right: 50px;
+  }
+  
+#limited .limited-text-container > h1 h3 p a {
+    margin-left: 50px;
+  }
+
+.button {
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 200;
+  margin: 2em 0;
+  padding: .8rem .8rem;
+  white-space: nowrap;
 }
 
 .button {
-  width: 12%;
-  height: 2rem;
-  display: inline-block;
-  padding: 0.4em 0.4em;
-  margin: 0 auto 2em;
   background-color: black;
   color: #fff;
-  border-radius: 4px;
   margin-top: 1em auto;
-  border: none;
 }
 
 /* ------------------------- */
@@ -114,11 +158,13 @@ nav ul li a:visited {
   text-align: center;
 }
 
-#history > div > div {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: inherit;
+@media (min-width: 768px) {
+  #history > div > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: inherit;
+  }
 }
 
 
@@ -131,12 +177,14 @@ nav ul li a:visited {
   text-align: center;
 }
 
-#reviews > div > div > ul {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 8rem;
-  padding: 0;
-  margin-bottom: 2em;
+@media (min-width: 768px) {
+  #reviews > div > div > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 8rem;
+    margin-bottom: 2em;
+    padding: 0;
+  }
 }
 
 #reviews li {
@@ -146,14 +194,42 @@ nav ul li a:visited {
 
 #variety h2 {
   text-align: center;
+  margin-bottom: 1em;
 }
 
-.flavor-variety {
-  display: flex;
-  column-gap: 2em;
-  margin-bottom: 2em;
+@media (max-width: 600px) {
+  .flavor-variety {
+    column-gap: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em
+    margin-bottom: 2em;
+  }
 }
 
+@media (min-width: 601px) {
+  .flavor-variety {
+    display: flex;
+    column-gap: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+
+.flavor-variety article {
+  border-radius: 12px;
+  background-color: #fcfbfa;
+  text-align: center;
+}
+
+.flavor-variety > article > img {
+  border-radius: 12px 12px 0px 0px;
+}
+
+
+footer {
+  text-align: center;
+}
 
 /* .limited {
   max-width: 1280px;
