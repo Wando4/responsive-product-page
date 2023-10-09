@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
 }
 
 img {
@@ -39,6 +39,14 @@ img {
   max-width: 1200px
   margin: 0 auto;
   padding: 2em 2em;
+}
+
+#header {
+  margin-top: 1em;
+}
+
+#logo img {
+  width: 10em;
 }
 
 #header > div {
@@ -55,6 +63,7 @@ nav ul {
 
 nav ul li {
   padding-left: 1.125em;
+  font-size: var();
 }
 
 nav ul li a:link,
@@ -98,30 +107,23 @@ nav ul li a:visited {
   margin-bottom: 1.8em;
 }
 
-/* /* .context {
-  line-height: 2;
-} */
-/* @media (min-width: 800px){
-  .limited {
-    grid-template-columns: 1fr 1fr;
-  } */ 
-
-@media (max-width: 400px) {
-  .limited-image-grid {
-    display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr; */
-    grid-template-rows: 3fr 1fr;
-    row-gap: 1em;
-    column-gap: 1em;
-  }
+.limited-image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em
 }
 
-@media (min-width: 400px) {
+.limited-image-grid #item-to-span {
+  grid-column: 1 / 4;
+}
+  
+@media (min-width: 601px) {
   .limited-image-grid {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 1em;
-    column-gap: 1em;
+  }
+
+  .limited-image-grid #item-to-span {
+    grid-column: 1/2;
   }
 }
 
@@ -129,11 +131,7 @@ nav ul li a:visited {
     border-radius: 8px;
     float: left;
     margin-right: 50px;
-  }
-  
-#limited .limited-text-container > h1 h3 p a {
-    margin-left: 50px;
-  }
+}
 
 .button {
   border-radius: 4px;
